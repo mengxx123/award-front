@@ -1,8 +1,11 @@
-# H5 邀请函
+# 抽奖页面
 
-> 禁止商用。部分素材来源于易企秀。
+配有后台 award-nodejs
 
-仿 http://h5.eqxiu.com/s//AXbBtNfI
+## TODO
+
+* 次数设置
+
 
 ## 运行项目
 

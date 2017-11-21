@@ -7,12 +7,24 @@
     @@include('../components/link.html')
 </head>
 <body>
-<div class="page">
+<div class="page page-sign">
+    <header class="page-header">
+        <img class="logo" src="/static/img/logo.png">
+    </header>
     <div class="page-body">
-        这是抽奖页面
+        <div class="page-title">签到内容</div>
+        <input class="input" id="name" placeholder="姓名">
+        <input class="input" id="phone" placeholder="手机号码">
+        <button class="btn sign" id="sign" type="button">签到</button>
+        <div class="company">广州量川科技有限公司</div>
+    </div>
+    <div id="success-box" class="success-box" style="display: none">
+        <img class="success" src="/static/img/sign-success.png">
+        <a class="btn go-award" href="/award.html">去抽奖</a>
     </div>
 </div>
 
 @@include('../components/script.html')
+<script src="/static/js/sign.js"></script>
 </body>
 </html>
