@@ -1,23 +1,29 @@
-# sign-front
+# 抽奖页面
 
-> A Vue.js project
+## 项目介绍
 
-## Build Setup
+这是一个抽奖活动的前端项目，主要功能有签到、刮奖。
 
-http://localhost:9901
+项目配有简单的管理平台，地址是 `/admin`。
 
-``` bash
-# install dependencies
-npm install
+后端代码请访问项目 [award-nodejs]()。
 
-# serve with hot reload at localhost:8080
-npm run dev
+## 运行项目
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+```
+npm install // 安装依赖
+npm run dev // 开发模式
+// or
+npm run build // 生产模式
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## TODO
+
+* 签到次数设置。
+* 多活动支持。
+* 支持抽奖界面，样式可自定义。支持轮盘抽奖、老虎机抽奖、九宫格抽奖、砸金蛋抽奖等内置模板。
+* 支持自定义模板。
+* 支持模板可视化编辑。
+* 支持内置表单、自定义表单。
+* 输入手机号领奖。
+* 自定义背景和前景。

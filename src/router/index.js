@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const Sign = resolve => require(['@/components/Sign'], resolve)
 const Award = resolve => require(['@/components/Award'], resolve)
 const Admin = resolve => require(['@/components/Admin'], resolve)
+const Rotate = resolve => require(['@/components/Rotate'], resolve)
 
 Vue.use(Router)
 
@@ -21,6 +22,13 @@ let routes = [
         component: Award,
         meta: {
             title: '抽奖页面'
+        }
+    },
+    {
+        path: '/rotate',
+        component: Rotate,
+        meta: {
+            title: '转盘抽奖'
         }
     },
     {

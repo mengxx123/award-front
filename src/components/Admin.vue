@@ -11,7 +11,6 @@
             <button @click="refresh" type="button">刷新</button>
             <button @click="clearUsers" type="button">清空签到名单</button>
             <button @click="clearAwards" type="button">清空获奖名单</button>
-
             <mu-list>
                 <mu-sub-header>获奖名单</mu-sub-header>
                 <div v-if="!awards.length">没有任何人获奖</div>
