@@ -56,11 +56,11 @@
                         completeRatio: .5, //设置擦除面积比例
                         // 大于擦除面积比例触发函数
                         completeFunction: () => {
-                            console.log('抽到啦' + this.award)
-                            console.log(this.asd)
+                            console.log('抽到啦' + _this.award)
+                            console.log(_this.asd)
                             storage.set('awardSuccess', true)
-                            if (this.award) {
-                                this.successVisible = true
+                            if (_this.award) {
+                                _this.successVisible = true
                             }
                         }
                     });
@@ -86,6 +86,7 @@
 //                                this.successVisible = true
                             } else if (data.code === 1) {
                                 // 谢谢参与
+                                console.log('我不信')
                                 _this.award = false
                                 //                                    storage.set('sign', true)
                             } else if (data.code === 2) {
@@ -95,8 +96,12 @@
                                 console.log(data.data)
                                 Toast('您已经抽奖过了')
                                 // 显示抽奖结果
+                                if (data.data.content === '1') {
+                                    _this.successVisible = true
+                                }
                             } else {
                                 // 系统出错
+                                console.log('我不信')
                                 _this.award = false
                                 Toast('系统出错')
                             }
