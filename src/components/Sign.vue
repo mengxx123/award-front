@@ -12,7 +12,7 @@
         </div>
         <div class="success-box" v-if="successVisible">
             <img class="success" src="/static/img/sign-success.png">
-            <router-link class="btn go-award" to="/award">去抽奖</router-link>
+            <a class="btn go-award" href="/award">去抽奖</a>
         </div>
     </div>
 </template>

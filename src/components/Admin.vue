@@ -9,8 +9,10 @@
         </header>
         <div class="page-body">
             <button @click="refresh" type="button">刷新</button>
+            <button @click="reset" type="button">重置系统</button>
             <button @click="clearUsers" type="button">清空签到名单</button>
             <button @click="clearAwards" type="button">清空获奖名单</button>
+            <button @click="dbTest0" type="button">压力测试</button>
             <mu-list>
                 <mu-sub-header>获奖名单</mu-sub-header>
                 <div v-if="!awards.length">没有任何人获奖</div>
@@ -42,6 +44,49 @@
             this.init()
         },
         methods: {
+            dbTest0() {
+                this.dbTest3()
+            },
+            dbTest1() {
+                for (let i = 0; i < 1000; i++) {
+                    this.$http.get('/count')
+                        .then(response => {
+                                let data = response.data
+                                console.log(data)
+                            },
+                            response => {
+                                console.log(response)
+                            })
+                }
+            },
+            dbTest2() {
+                for (let i = 0; i < 1000; i++) {
+                    this.$http.get('/users')
+                        .then(response => {
+                                let data = response.data
+                                console.log(data)
+                            },
+                            response => {
+                                console.log(response)
+                            })
+                }
+            },
+            dbTest3() {
+                for (let i = 0; i < 1000; i++) {
+                    this.$http.post('/users', this.$qs.stringify({
+                        user_name: 'test_' + i,
+                        phone: '13551101234',
+                        industry: '互联网'
+                    }))
+                        .then(response => {
+                                let data = response.data
+                                console.log(data)
+                            },
+                            response => {
+                                console.log(response)
+                            })
+                }
+            },
             init() {
                 // TODO 安全
                 this.$http.get('/users')
@@ -71,6 +116,10 @@
                         response => {
                             console.log(response)
                         })
+            },
+            reset() {
+                this.clearAwards()
+                this.clearUsers()
             },
             clearUsers() {
                 this.$http.delete('/users')

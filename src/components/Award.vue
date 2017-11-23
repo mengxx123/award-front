@@ -3,8 +3,6 @@
         <header class="page-header"></header>
         <div class="page-body">
             <div class="page-title">•&nbsp;刮奖区&nbsp;•</div>
-            <div>{{ join }}</div>
-            <div>{{ asd }}</div>
             <div class="main-box">
                 <div class="content">
                     <div id="mask_img_bg">
@@ -34,6 +32,7 @@
     import storage from '../util/storage'
     import { Toast } from 'mint-ui'
 
+    let aaa = false
     export default {
         data () {
             return {
@@ -56,10 +55,10 @@
                         completeRatio: .5, //设置擦除面积比例
                         // 大于擦除面积比例触发函数
                         completeFunction: () => {
-                            console.log('抽到啦' + _this.award)
+                            console.log('抽到啦' + _this.award + aaa)
                             console.log(_this.asd)
-                            storage.set('awardSuccess', true)
-                            if (_this.award) {
+                            if (aaa) {
+                                console.log('显示')
                                 _this.successVisible = true
                             }
                         }
@@ -81,14 +80,14 @@
                                 _this.asd = 'heheda'
                                 console.log(this.asd)
                                 _this.award = true
+                                aaa = true
 //                                this.successVisible = true
-//                                storage.set('sign', true)
 //                                this.successVisible = true
                             } else if (data.code === 1) {
                                 // 谢谢参与
                                 console.log('我不信')
                                 _this.award = false
-                                //                                    storage.set('sign', true)
+                                aaa = false
                             } else if (data.code === 2) {
                                 // 已经抽奖过了 TODO 显示结果
                                 _this.join = true
@@ -103,6 +102,7 @@
                                 // 系统出错
                                 console.log('我不信')
                                 _this.award = false
+                                aaa = false
                                 Toast('系统出错')
                             }
                         },
@@ -111,14 +111,6 @@
                         })
 
                 // TODO 设备唯一
-//                if (storage.get('award')) {
-//                    if (storage.get('awardSuccess')) {
-//                        this.successVisible = true
-////                        Toast('您已经抽过奖品了')
-//                    } else {
-//                        Toast('您已经抽过奖品了')
-//                    }
-//                }
             }
         }
     }

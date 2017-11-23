@@ -5,6 +5,7 @@ const Sign = resolve => require(['@/components/Sign'], resolve)
 const Award = resolve => require(['@/components/Award'], resolve)
 const Admin = resolve => require(['@/components/Admin'], resolve)
 const Rotate = resolve => require(['@/components/Rotate'], resolve)
+const ActivityDetail = resolve => require(['@/components/ActivityDetail'], resolve)
 
 Vue.use(Router)
 
@@ -36,6 +37,13 @@ let routes = [
         component: Admin,
         meta: {
             title: '后台'
+        }
+    },
+    {
+        path: '/activities/:id',
+        component: ActivityDetail,
+        meta: {
+            title: '活动详情'
         }
     }
 ]
