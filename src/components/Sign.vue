@@ -12,7 +12,7 @@
         </div>
         <div class="success-box" v-if="successVisible">
             <img class="success" src="/static/img/sign-success.png">
-            <a class="btn go-award" href="/award">去抽奖</a>
+            <router-link class="btn go-award" to="/award">去抽奖</router-link>
         </div>
     </div>
 </template>
@@ -22,14 +22,13 @@
     import { Toast } from 'mint-ui'
 
     export default {
-        name: 'Sign',
         mounted() {
             this.init()
         },
         data () {
             return {
-                name: '陈建行',
-                phone: '15602221204',
+                name: storage.get('name') || '',
+                phone: storage.get('phone') || '',
                 successVisible: false
             }
         },
@@ -67,6 +66,12 @@
                     Toast('请输入正确的手机号')
                     return
                 }
+                // 由于手机号不验证，必须限制一个设备只能签到一次 TODO 不安全
+                let bindPhone = storage.get('bind_phone')
+                if (bindPhone && bindPhone !== this.phone) {
+                    Toast('一部手机只能签到一次')
+                    return
+                }
 
                 storage.set('name', this.name)
                 storage.set('phone', this.phone)
@@ -83,6 +88,8 @@
                             if (data.code === 0) {
                                 storage.set('sign', true)
                                 this.successVisible = true
+                                // 标志该设备已经签到过了
+                                storage.set('bind_phone', this.phone)
                             } else {
                                 if (data.code === 2) {
 //                                    Toast('您已经签到过了')

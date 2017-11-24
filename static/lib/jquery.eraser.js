@@ -278,7 +278,6 @@
 				data.complete = false;
 			}
 		}
-
 	};
 
 	$.fn.eraser = function( method ) {

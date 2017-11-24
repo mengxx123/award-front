@@ -45,6 +45,9 @@
         mounted() {
             this.init()
         },
+        destroyed() {
+            $('#redux').eraser('clear')
+        },
         methods: {
             init() {
                 let _this = this
@@ -94,6 +97,7 @@
                                 _this.joinContent = data.data.content
                                 console.log(data.data)
                                 Toast('您已经抽奖过了')
+                                $('#redux').hide()
                                 // 显示抽奖结果
                                 if (data.data.content === '1') {
                                     _this.successVisible = true
