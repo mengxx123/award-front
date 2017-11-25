@@ -34,12 +34,19 @@
         },
         methods: {
             init() {
-                $('input').on('focus', function () {
-                    $('body').addClass('page-inputing')
-                })
-                $('input').on('blur', function () {
-                    $('body').removeClass('page-inputing')
-                })
+                let u = navigator.userAgent
+//                var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+                let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+//                alert('是否是Android：'+isAndroid);
+//                alert('是否是iOS：'+isiOS);
+                if (!isiOS) {
+                    $('input').on('focus', function () {
+                        $('body').addClass('page-inputing')
+                    })
+                    $('input').on('blur', function () {
+                        $('body').removeClass('page-inputing')
+                    })
+                }
 
 //                if (storage.get('sign')) {
 //                    if (location.award) {
