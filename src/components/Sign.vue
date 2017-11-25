@@ -77,7 +77,7 @@
                 let bindPhone = storage.get('bind_phone')
                 if (bindPhone && bindPhone !== this.phone) {
                     Toast('一部手机只能签到一次')
-                    return
+//                    return
                 }
 
                 storage.set('name', this.name)
