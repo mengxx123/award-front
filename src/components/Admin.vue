@@ -13,14 +13,14 @@
             <button @click="clearUsers" type="button">清空签到名单</button>
             <button @click="clearAwards" type="button">清空获奖名单</button>
             <button @click="dbTest0" type="button">压力测试</button>
-            <mu-list>
+            <mu-list class="limited-list">
                 <mu-sub-header>获奖名单</mu-sub-header>
                 <div v-if="!awards.length">没有任何人获奖</div>
 
                 <mu-list-item :title="award.user_name" :describeText="award.phone" v-for="award in awards"></mu-list-item>
             </mu-list>
 
-            <mu-list>
+            <mu-list class="limited-list">
                 <mu-sub-header>签到名单</mu-sub-header>
                 <div v-if="!users.length">没有任何人签到</div>
 
@@ -159,5 +159,8 @@
 </script>
 
 <style scoped>
-
+    .limited-list {
+        height: 100px;
+        overflow: auto;
+    }
 </style>

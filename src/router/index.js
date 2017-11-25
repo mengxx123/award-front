@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const Sign = resolve => require(['@/components/Sign'], resolve)
 const Award = resolve => require(['@/components/Award'], resolve)
 const Admin = resolve => require(['@/components/Admin'], resolve)
+const Reset = resolve => require(['@/components/Reset'], resolve)
 const Rotate = resolve => require(['@/components/Rotate'], resolve)
 const ActivityDetail = resolve => require(['@/components/ActivityDetail'], resolve)
 
@@ -35,6 +36,13 @@ let routes = [
     {
         path: '/admin',
         component: Admin,
+        meta: {
+            title: '后台'
+        }
+    },
+    {
+        path: '/reset',
+        component: Reset,
         meta: {
             title: '后台'
         }
