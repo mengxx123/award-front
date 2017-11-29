@@ -17,14 +17,14 @@
                 <mu-sub-header>获奖名单</mu-sub-header>
                 <div v-if="!awards.length">没有任何人获奖</div>
 
-                <mu-list-item :title="award.user_name" :describeText="award.phone" v-for="award in awards"></mu-list-item>
+                <mu-list-item :title="award.user_name" :describeText="award.phone" v-for="award in awards" :key="award.phone"></mu-list-item>
             </mu-list>
 
             <mu-list class="limited-list">
                 <mu-sub-header>签到名单</mu-sub-header>
                 <div v-if="!users.length">没有任何人签到</div>
 
-                <mu-list-item :title="user.user_name" :describeText="user.phone" v-for="user in users"></mu-list-item>
+                <mu-list-item :title="user.user_name" :describeText="user.phone" v-for="user in users" :key="award.phone"></mu-list-item>
             </mu-list>
         </div>
     </div>
